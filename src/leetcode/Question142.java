@@ -1,4 +1,5 @@
 package leetcode;
+import tools.ListNode;
 
 public class Question142 {
     public ListNode detectCycle(ListNode head) {

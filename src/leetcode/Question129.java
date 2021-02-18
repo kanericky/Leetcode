@@ -1,5 +1,7 @@
 package leetcode;
 
+import tools.TreeNode;
+
 /**
  * 129. 求根到叶子节点数字之和
  * 难度 中等
@@ -47,11 +49,4 @@ public class Question129 {
 
 
 
-}
-
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-    TreeNode(int x) { val = x; }
 }

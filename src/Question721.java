@@ -1,4 +1,3 @@
-import java.io.StringBufferInputStream;
 import java.util.*;
 
 /**
@@ -28,6 +27,7 @@ public class Question721 {
         Map<String, Integer> visited = new HashMap<>();
 
         /**
+         * 
          * 根据所给List构建无向图
          */
         for(List<String> account : accounts){
@@ -59,9 +59,7 @@ public class Question721 {
             if(accountWithoutDuplicate.size() != 0){
                 List<String> accountAns = new ArrayList<>();
                 accountAns.add(account.get(0));
-                for(String email : accountWithoutDuplicate){
-                    accountAns.add(email);
-                }
+                accountAns.addAll(accountWithoutDuplicate);
                 Collections.sort(accountAns);
                 ans.add(accountAns);
             }
@@ -69,6 +67,13 @@ public class Question721 {
         return ans;
     }
 
+    /**
+     * Depth-first-search
+     * @param visited a Map which record the node has been visited or not.
+     * @param emails a List to store the node.
+     * @param nodes collection of nodes
+     * @param currentEmail current email to check
+     */
     private static void dfs(Map<String, Integer> visited, List<String> emails, Map<String, List<String>> nodes, String currentEmail){
 
         if(visited.containsKey(currentEmail))

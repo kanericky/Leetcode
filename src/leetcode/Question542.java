@@ -26,7 +26,7 @@ public class Question542 {
         int m = matrix.length, n = matrix[0].length;
         int[][] dp = new int[m][n];
         for(int i = 0; i < m; i++)
-            Arrays.fill(dp[i], Integer.MAX_VALUE);
+            Arrays.fill(dp[i], Integer.MAX_VALUE-1);
 
         //左上至右下
         for(int i = 0; i < m; i++){
@@ -43,8 +43,8 @@ public class Question542 {
         }
 
         //从右下至左上
-        for(int i = m-1; i > 0; i--){
-            for(int j = n -1; j > 0; j--){
+        for(int i = m-1; i >= 0; i--){
+            for(int j = n-1; j >= 0; j--){
                 if(matrix[i][j] != 0){
                     if(i < m-1)
                         dp[i][j] = Math.min(dp[i+1][j] + 1, dp[i][j]);

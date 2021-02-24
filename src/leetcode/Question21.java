@@ -44,10 +44,31 @@ public class Question21 {
             System.out.print(newList.val + " " );
             newList = newList.next;
         }
-        System.out.println("");
+        System.out.println();
     }
 
-    public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    public static ListNode mergeTwoLists(ListNode l1, ListNode l2){
+        if(l1 == null) return l2;
+        if(l2 == null) return l1;
+
+        ListNode startNode = new ListNode(), tempNode = startNode;
+
+        while(l1 != null && l2 != null){
+            if(l1.val <= l2.val){
+                tempNode.next = l1;
+                l1 = l1.next;
+            }else{
+                tempNode.next = l2;
+                l2 = l2.next;
+            }
+            tempNode = tempNode.next;
+        }
+        tempNode.next = l1 != null ? l1 : l2;
+        return startNode.next;
+    }
+
+
+    public static ListNode mergeTwoListsOutdated(ListNode l1, ListNode l2) {
         if(l1 == null) return l2;
         if(l2 == null) return l1;
 
@@ -100,7 +121,7 @@ public class Question21 {
             }
         }
 
-        /** 1->2->4, 1->3->4 */
+        // 1->2->4, 1->3->4 */
 
         return startNode;
     }

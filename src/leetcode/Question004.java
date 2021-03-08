@@ -3,12 +3,6 @@ package leetcode;
 import java.util.ArrayList;
 
 public class Question004 {
-    public static void main(String[] args) {
-        int[] nums1 = new int[]{1,3};
-        int[] nums2 = new int[]{2};
-        System.out.println(findMedianSortedArrays(nums1, nums2));
-
-    }
 
     public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int length1 = nums1.length, length2 = nums2.length;
@@ -65,6 +59,13 @@ public class Question004 {
                 index2 = newIndex2 + 1;
             }
         }
+    }
+
+    public static void main(String[] args) {
+        int[] nums1 = new int[]{1,3};
+        int[] nums2 = new int[]{2};
+        System.out.println(findMedianSortedArrays(nums1, nums2));
+
     }
 
 }
